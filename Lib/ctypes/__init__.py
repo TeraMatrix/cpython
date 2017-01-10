@@ -273,7 +273,9 @@ def _reset_cache():
     # function is needed for the unittests on Win64 to succeed.  This MAY
     # be a compiler bug, since the problem occurs only when _ctypes is
     # compiled with the MS SDK compiler.  Or an uninitialized variable?
-    CFUNCTYPE(c_int)(lambda: None)
+    # http://stackoverflow.com/questions/5914673/python-ctypes-memoryerror-in-fcgi-process-from-pil-library/7653433#7653433
+    # CFUNCTYPE(c_int)(lambda: None)
+    pass
 
 try:
     from _ctypes import set_conversion_mode
